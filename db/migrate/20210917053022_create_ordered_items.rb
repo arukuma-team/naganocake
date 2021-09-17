@@ -4,7 +4,7 @@ class CreateOrderedItems < ActiveRecord::Migration[5.2]
       t.integer :item_id
       t.integer :order_id
       t.integer :piece
-      t.enum :making_status
+      t.integer :making_status
       t.integer :price_taxin
 
       t.timestamps

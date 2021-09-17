@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :delivery_name
       t.text :delivery_address
       t.integer :delivery_zip
-      t.enum :order_status
+      t.integer :order_status
 
       t.timestamps
     end
