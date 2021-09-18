@@ -1,4 +1,5 @@
 class Members::MembersController < ApplicationController
+
     
   def edit
     @member = Member.find(params[:id])
@@ -15,7 +16,11 @@ class Members::MembersController < ApplicationController
         render :edit
       end
   end
-    
+  
+  def show
+    @member = current_member
+  end
+  
 end
 
 private
