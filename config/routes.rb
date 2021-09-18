@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :members
+  
+  root to: 'members/homes#top'
+  get '/about' => 'members/homes#about'
+  
+  get '/admins/about' => 'admin/homes#top'
+ 
 
   namespace :admin do
     resources :items
