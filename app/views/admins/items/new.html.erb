@@ -1,9 +1,9 @@
 <h3>商品新規登録</h3>
 
-<%= form_with model: @item, url: new_admins_item_path, local:true do |f| %>
+<%= form_with model: @item, url: '/admins/items', local:true do |f| %>
 
   <div>
-   <%= f.label :image, "商品画像" %>
+   <%= f.label :item_image, "商品画像" %>
    <%= f.attachment_field :image %>
   </div>
 
