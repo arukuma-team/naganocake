@@ -13,7 +13,8 @@
       <a class="nav-item nav-link" href="/about">About</a>
       <a class="nav-item nav-link" href=" /admin/items">item</a>
       <a class="nav-item nav-link disabled" href="#">cart_items</a>
-      <a class="nav-item nav-link disabled" href="#">logout</a>
+      <div><%= link_to "logout", destroy_member_session_path, method: :delete, class: "nav-item nav-link" %></div>
+  
       
 
       <a class="nav-item nav-link" href="/about">About</a>
