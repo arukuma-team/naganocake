@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  
-  # before_action :authenticate_member!,except: [:top, :about]
-  # before_action :authenticate_admin!
+  before_action :authenticate_member!,except: [:top, :about]
+  before_action :authenticate_admin!,except: [:top, :about]
 
   def after_sign_in_path_for(resource)
     root_path
@@ -18,5 +17,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :lastname, :firstname, :lastruby, :firstruby, :zip, :address, :tel])
   end
-  
 end

@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   root to: 'members/homes#top'
   get '/about' => 'members/homes#about'
-  get '/admins/about' => 'admin/homes#top'
-  
-  namespace :admin do
+  get '/admins' => 'admin/homes#top'
+
+
+  namespace :admins do
     resources :items
     resources :members
     resources :addresses
