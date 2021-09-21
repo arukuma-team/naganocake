@@ -1,0 +1,74 @@
+<h2>会員情報編集</h2>
+
+<%= form_with model: @member, url: members_member_path, local:true do |member| %>
+
+<table>
+  
+  <tr>
+    <th>
+      氏名
+    </th>
+    <th>
+      <%= member.text_field :lastname %>
+    </th>
+    <th>
+      <%= member.text_field :firstname %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>
+      フリガナ
+    </th>
+    <th>
+      <%= member.text_field :lastruby %>
+    </th>
+    <th>
+      <%= member.text_field :firstruby %>
+    </th>
+  </tr>
+  
+   <tr>
+    <th>
+      郵便番号(ハイフンなし)
+    </th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :zip %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>
+      住所
+    </th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :address %>
+    </th>
+  </tr>
+
+  <tr>
+    <th>
+      電話番号(ハイフンなし)
+    </th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :tel %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>
+      メールアドレス
+    </th>
+    <th>
+      <%= member.email_field :email, autofocus: true, autocomplete: "email" %>
+    </th>
+  </tr>
+ 
+</table>
+
+<% end %>
+
+<%= member.submit "編集内容を保存", class: "btn btn-secondary" %>
+</br>
+<%= link_to '退会する', class: "btn btn-secondary" %>
+

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class='row'>
+    <h1>商品詳細</h1>
+      	<table class='table'>
+      	<tr>
+  		    <td colspan="3"></td>
+          <td>商品名</td>
+          <td>商品説明</td>
+          <td>税抜価格</td>
+          <td colspan="3"></td>
+          <td colspan="3"></td>
+          <td colspan="3"></td>
+        </tr>
+  		  <tr>
+  		    <td><%= @item.image %></td>
+          <td><%= @item.name %></td>
+          <td><%= @item.description %></td>
+          <td><%= @item.price %></td>
+          <td class="badge rounded-pill bg-primary">カテゴリー</td>
+          <td class="badge rounded-pill bg-primary">販売ステータス</td>
+          <td><%#= link_to 'Edit', edit_item_path(@item), class: "btn btn-sm btn-success edit_item_#{@item.id}" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
