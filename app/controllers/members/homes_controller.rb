@@ -1,4 +1,5 @@
 class Members::HomesController < ApplicationController
+  
   def top
   end
   

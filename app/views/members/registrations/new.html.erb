@@ -1,4 +1,4 @@
-<h2>新規会員登録</h2
+<h2>新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -18,8 +18,14 @@
   </tr>
   
   <tr>
-    <th>git
-      (メイ)<%= f.text_field :firstruby %>
+    <th>
+      フリガナ
+    </th>
+    <th>
+      (ｾｲ)<%= f.text_field :lastruby %>
+    </th>
+    <th>
+      (ﾒｲ)<%= f.text_field :firstruby %>
     </th>
   </tr>
     
@@ -28,7 +34,7 @@
       メールアドレス
     </th>
     <th>
-      &nbsp; &nbsp; <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </th>
   </tr>
   
@@ -37,7 +43,7 @@
       郵便番号(ハイフンなし)
     </th>
     <th>
-      &nbsp; &nbsp; <%= f.text_field :zip %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :zip %>
     </th>
   </tr>
   
@@ -46,7 +52,7 @@
       住所
     </th>
     <th>
-      &nbsp; &nbsp; <%= f.text_field :address %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :address, size:"25x1" %>
     </th>
   </tr>
   
@@ -55,7 +61,7 @@
       電話番号(ハイフンなし)
     </th>
     <th>
-      &nbsp; &nbsp; <%= f.text_field :tel %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :tel %>
     </th>
   </tr>
   
@@ -64,13 +70,9 @@
       パスワード(6文字以上)
     </th>
     <th>
-      &nbsp; &nbsp; 
+      
       <div class="field">
-      <!--<f.label :password>-->
-      <!--< if @minimum_password_length %>-->
-      <!--<em>(<= @minimum_password_length %> characters minimum)</em>-->
-      <!--< end %><br />-->
-      <%= f.password_field :encrypted_password, autocomplete: "new-password" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.password_field :password, autocomplete: "new-password" %>
       </div>
     </th>
   </tr>
@@ -80,10 +82,8 @@
       パスワード(確認用)
     </th>
     <th>
-      &nbsp; &nbsp; 
       <div class="field">
-      <!--< f.label :password_confirmation %>-->
-      <%= f.password_field :encrypted_password_confirmation, autocomplete: "new-password" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </th>
   </tr>
@@ -95,8 +95,7 @@
 </div>
 
 <% end %>
-
+<p><br></p>
 <h3>既に登録済の方</h3>
 <p> <%= link_to 'こちら', new_member_session_path %> からログインしてください。</p>
 
-<%= render "devise/shared/links" %>
