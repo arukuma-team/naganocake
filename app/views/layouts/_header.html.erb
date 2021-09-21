@@ -13,21 +13,19 @@
        <a class="nav-item nav-link" href="/about">About</a>
        <a class="nav-item nav-link" href="/members/items">Items</a>
        <a class="nav-item nav-link disabled" href="/members/cart_items">Cart items</a>
-       <a class="nav-item nav-link disabled" href="/members/sign_out">Logout</a>
-       <div><%= link_to "logout", destroy_member_session_path, method: :delete, class: "nav-item nav-link" %></div>
+       <div><%= link_to "Logout", destroy_member_session_path, method: :delete, class: "nav-item nav-link" %></div>
        
       <% elsif admin_signed_in? %>
        <a class="nav-item nav-link" href="/admins/top">Orders</a>
        <a class="nav-item nav-link" href="/admins/items">Items</a>
        <a class="nav-item nav-link" href="/admins/members">Members</a>
        <a class="nav-item nav-link" href="/admins/categories">Categories</a>
-       <a class="nav-item nav-link disabled" href="/admins/sign_out">Logout</a>
-       
+       <div><%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "nav-item nav-link" %></div>
       <% else %>
        <a class="nav-item nav-link" href="/about">About</a>
        <a class="nav-item nav-link" href="/members/sign_up">Sign up</a>
-       <a class="nav-item nav-link disabled" href="/members/sign_in">Login</a>
-       <a class="nav-item nav-link disabled" href="/admins/sign_in">Admin_login</a>
+       <div><%= link_to "Login", new_member_session_path, class: "nav-item nav-link" %></div>
+       <div><%= link_to "Admin_login", new_admin_session_path, class: "nav-item nav-link" %></div>
       <% end %>
       
       </div>
