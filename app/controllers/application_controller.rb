@@ -1,16 +1,26 @@
 class ApplicationController < ActionController::Base
 
-  #before_action :authenticate_member!,except: [:top, :about]
-  before_action :authenticate_admin!,except: [:top, :about]
+before_action :authenticate_any!,except: [:top, :about]
+
 
 protected
 
+  def authenticate_any!
+    if admin_signed_in?
+      true
+    else
+      authenticate_member!
+    end
+  end
+  
+  
+
   def after_sign_in_path_for(resource)
     case resource
-    when Admin
-      admins_orders_path
     when Member
       root_path
+    when Admin
+      admins_orders_path
     end
 
   end
