@@ -13,8 +13,8 @@
       <tbody>
         <% @items.each do |item| %>
           <tr>
-            <td><%= @item.image %></td>
-            <td><%= link_to @item.name, members_item_path(@item), class: "item_#{item.id}" %></td>
+            <td><%= attachment_image_tag item, :picture, :fill, 100, 100, format: 'jpeg' %></td>
+            <td><%= link_to item.name, members_item_path(item), class: "item_#{item.id}" %></td>
             <td class="badge rounded-pill bg-primary">カテゴリー</td>
             <td class="badge rounded-pill bg-primary">販売ステータス</td>
           </tr>

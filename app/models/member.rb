@@ -3,6 +3,10 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+
+  has_one :order, dependent: :destroy
+
 
   include Discard::Model
   default_scope -> { kept }

@@ -1,23 +1,53 @@
 <div class="container">
+  
   <div class="row">
     <div class="col-md-3">
       <table class="table table-striped">
         <thead>
           <tr>
-           ジャンル一覧
+            <th>
+              ジャンル一覧
+            </th>
           </tr>
         </thead>
         <tbody>
-         　<tr>
-         　<td>ジャンルデータ</td>
-         　</tr>
+        <% @categories.each do |category| %>  
+          <tr>
+         　 <td<%= category.category %>></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
-     
-     
     </div>
     <div class="col-md-8 offset-md-1">
-      <h1>top画面</h1>
+      <h3>ようこそ、naganocakeへ！</h3>
+      <h5>このサイトはケーキ販売のECサイトとなります。</h5>
+      <%= image_tag 'sc-012-2.jpg', class:'top' %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-8 offset-md-1">
+    <h3>新着商品</h3>
+    <% @items.reverse_each do |item,n| %>
+      <div>
+        <%= item.image %>
+        <%= item.name %>
+        <%= item.price %>
+        break if n== 4
+      </div>
+    <% end %>
+    <%= link_to "全ての商品を見る", members_items_path %>
+    </div>
+  </div>
+  
+         
+        
+        
+        
+      </table>
+    </div>
+  </div>
+  
 </div>

@@ -12,7 +12,7 @@
           <td colspan="3"></td>
         </tr>
   		  <tr>
-  		    <td><%= @item.image %></td>
+  		    <td><%= attachment_image_tag @item, :picture, :fill, 100, 100, format: 'jpeg' %></td>
           <td><%= @item.name %></td>
           <td><%= @item.description %></td>
           <td><%= @item.price %></td>

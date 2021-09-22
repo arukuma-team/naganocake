@@ -1,0 +1,24 @@
+<div class="container">
+  <div class='row'>
+    <%= form_with model: @category,url:admins_categories_path,local:true do |f| %>
+        <div class="form-group">
+        <%= f.label :category, "カテゴリー名" %>
+        <%= f.text_field :category, placeholder:"※ケーキ" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "新規登録", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+  <div class='row'>
+    <table class='table'>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.category %></td>
+          <td><%= link_to '編集', edit_admins_category_path(category), class: "btn btn-sm btn-success edit_admins_category_#{@category.id}" %></td>
+          <td><%= link_to '削除', admins_category_path(category), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_category_#{@category.id}"%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
