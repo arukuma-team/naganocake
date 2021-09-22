@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_09_21_060842) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted", default: false
+    t.datetime "discarded_at"
     t.string "lastname"
     t.string "firstname"
     t.string "lastruby"
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_060842) do
     t.text "address"
     t.string "tel"
     t.boolean "status"
+    t.index ["discarded_at"], name: "index_members_on_discarded_at"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end

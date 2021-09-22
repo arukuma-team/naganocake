@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  
   before_action :authenticate_member!,except: [:top, :about]
   before_action :authenticate_admin!,except: [:top, :about]
 
