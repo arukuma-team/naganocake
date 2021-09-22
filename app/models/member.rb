@@ -7,4 +7,10 @@ class Member < ApplicationRecord
 
   has_one :order, dependent: :destroy
 
+
+  include Discard::Model
+  default_scope -> { kept }
+  def active_for_authentication?
+    super && kept?
+  end
 end

@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   namespace :members do
     resources :items
     resources :members
+      get 'members/:id/quit' => 'unsubscribe#quit', as: 'quit_members'
+      patch 'members/out/:id' => 'unsubscribe#out', as: 'out_member'
     resources :addresses
     resources :cart_items
     resources :categories
