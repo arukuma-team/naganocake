@@ -26,4 +26,15 @@ protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :lastname, :firstname, :lastruby, :firstruby, :zip, :address, :tel])
   end
+
+  
+  # def current_order
+  #   Order.find(session[:order_id])
+  # rescue ActiveRecord::RecordNotFound
+  #   order = Order.create
+  #   session[:order_id] = order.id
+  #   order
+  # end
+  #　↑　rails sをしたときにエラーが出るので取り合えず、コメントにしときます。
 end
+
