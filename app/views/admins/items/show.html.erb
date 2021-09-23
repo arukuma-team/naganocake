@@ -1,23 +1,34 @@
 <div class="container">
   <div class='row'>
     <h1>商品詳細</h1>
-      	<table class='table'>
+      <table class='table'>
+        <thead>
       	<tr>
-  		    <td colspan="3"></td>
+
+  		    <td></td>
           <td>商品名</td>
           <td>商品説明</td>
           <td>税抜価格</td>
           <td colspan="3"></td>
-          <td colspan="3"></td>
-          <td colspan="3"></td>
+
         </tr>
+        </thead>
+        <tbody>
   		  <tr>
   		    <td><%= attachment_image_tag @item, :picture, :fill, 100, 100, format: 'jpeg' %></td>
           <td><%= @item.name %></td>
           <td><%= @item.description %></td>
           <td><%= @item.price %></td>
-          <td class="badge rounded-pill bg-primary">カテゴリー</td>
-          <td class="badge rounded-pill bg-primary">販売ステータス</td>
+          <td>
+            <h5><span class="badge rounded-pill bg-primary">カテゴリー</span><h5>
+          </td>
+          <td>
+            <% if @item.status? %>
+             <h5><span class="badge rounded-pill bg-success">販売中</span></h5>
+            <% else %>
+             <h5><span class="badge rounded-pill bg-secondary">販売停止中</span></h5>
+            <% end %>
+          </td>
           <td><%#= link_to 'Edit', edit_item_path(@item), class: "btn btn-sm btn-success edit_item_#{@item.id}" %></td>
         </tr>
       </table>

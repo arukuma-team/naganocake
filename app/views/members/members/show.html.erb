@@ -12,39 +12,43 @@
 <table class='table'>
   <tr>
     <td>氏名</td>
-    <td>苗字<%#= current_member.firstname %></td>
-    <td>名前<%#= current_member.lastname %></td>
+    <td><%= current_member.lastname %></td>
+    <td><%= current_member.firstname %></td>
   </tr>
   <tr>
     <td>カナ</td>
-    <td><%#= current_member.firstruby %></td>
-    <td><%#= current_member.lastruby %></td>
+    <td><%= current_member.lastruby %></td>
+    <td><%= current_member.firstruby %></td>
   </tr>
   <tr>
     <td>郵便番号</td>
-    <td><%#= current_member.zip %></td>
+    <td><%= current_member.zip %></td>
+    <td></td>
   </tr>
   <tr>
     <td>住所</td>
-    <td><%#= current_member.address %></td>
+    <td><%= current_member.address %></td>
+    <td></td>
   </tr>
   <tr>
     <td>電話番号</td>
-    <td><%#= current_member.tel %></td>
+    <td><%= current_member.tel %></td>
+    <td></td>
   </tr>
   <tr>
     <td>メールアドレス</td>
-    <td><%#= current_member.email %></td>
+    <td><%= current_member.email %></td>
+    <td></td>
   </tr>
 </table>
 
 <table>
   <tr>
     <td>配送先</td>
-    <td><%= link_to '一覧を見る', class: "btn btn-sm btn-primary" %></td>
+    <td class="btn btn-primary" href="#" role="button">一覧を見る</td>
   </tr>
   <tr>
     <td>注文履歴</td>
-    <td><%= link_to '一覧を見る', class: "btn btn-sm btn-primary" %></td>
+    <td class="btn btn-primary" href="#" role="button">一覧を見る</td>
   </tr>
 </table>

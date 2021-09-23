@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
+
 before_action :authenticate_any!,except: [:top, :about]
+
 
 
 protected
@@ -12,8 +14,8 @@ protected
       authenticate_member!
     end
   end
-  
-  
+
+
 
   def after_sign_in_path_for(resource)
     case resource
@@ -37,7 +39,7 @@ protected
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :lastname, :firstname, :lastruby, :firstruby, :zip, :address, :tel])
   end
 
-  
+
   # def current_order
   #   Order.find(session[:order_id])
   # rescue ActiveRecord::RecordNotFound
