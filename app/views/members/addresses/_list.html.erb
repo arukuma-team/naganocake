@@ -1,22 +1,21 @@
-<div class="col-md-8 offset-md-1">
-        <h2>Books</h2>
-        <table class="table">
+  <table class="table">
           <thead>
            <tr>
-             <th>郵便番号</th>
+             <th>〒</th>
              <th>住所</th>
              <th>名前</th>
+             <th colspan="4"></th>
            </tr>
          </thead>
-        <tbody>
 
+        <tbody>
         <% addresses.each do |address| %>
          <tr>
           <td><%= address.zip %></td>
           <td><%= address.address %></td>
-          <td><%= newaddress.name %></td>
-          <td><%= link_to "Edit", edit_members_newaddress_path(newaddress), class: "btn btn-success" %></td>
-          <td><%= link_to "Destroy", members_newaddress__path(newaddress), class: "btn btn-danger", method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+          <td><%= address.name %></td>
+          <td><%= link_to "Edit", edit_members_address_path(address) %></td>
+          <td><%= link_to "Destroy", members_address_path(address), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
         </tr>
        <% end %>
       </tbody>
