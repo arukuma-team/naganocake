@@ -1,10 +1,10 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-md-3">
-      
+
     <%= render 'members/items/category', categories: @categories %>
-      
+
     </div>
     <div class="col-md-8 offset-md-1">
       <h3>ようこそ、naganocakeへ！</h3>
@@ -19,7 +19,7 @@
     <h3>新着商品</h3>
     <% @items.reverse_each do |item,n| %>
       <div>
-        <%= item.image %>
+        
         <%= item.name %>
         <%= item.price %>
         break if n== 4
@@ -28,13 +28,13 @@
     <%= link_to "全ての商品を見る", members_items_path %>
     </div>
   </div>
-  
-         
-        
-        
-        
+
+
+
+
+
       </table>
     </div>
   </div>
-  
+
 </div>

@@ -1,0 +1,23 @@
+<div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
+        <table class="table">
+          <thead>
+           <tr>
+             <th>郵便番号</th>
+             <th>住所</th>
+             <th>名前</th>
+           </tr>
+         </thead>
+        <tbody>
+
+        <% addresses.each do |address| %>
+         <tr>
+          <td><%= address.zip %></td>
+          <td><%= address.address %></td>
+          <td><%= newaddress.name %></td>
+          <td><%= link_to "Edit", edit_members_newaddress_path(newaddress), class: "btn btn-success" %></td>
+          <td><%= link_to "Destroy", members_newaddress__path(newaddress), class: "btn btn-danger", method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+        </tr>
+       <% end %>
+      </tbody>
+      </table>
