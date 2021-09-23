@@ -4,4 +4,9 @@ class Members::ItemsController < ApplicationController
     @items = Item.all
     @categories = Category.all
   end
+  
+  def show
+    @item = Item.find(params[:id])
+  end
+  
 end

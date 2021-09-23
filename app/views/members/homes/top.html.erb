@@ -19,7 +19,7 @@
     <h3>新着商品</h3>
     <% @items.reverse_each do |item,n| %>
       <div>
-        <%= item.image %>
+        <%= attachment_image_tag item, :picture, :fill, 100, 100, format: 'jpeg' %>
         <%= item.name %>
         <%= item.price %>
         break if n== 4
