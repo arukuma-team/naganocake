@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        ジャンル一覧
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% categories.each do |category| %>  
+    <tr>
+      <td<%= category.category %>></td>
+    </tr>
+  <% end %>
+  </tbody>
+ </table>
