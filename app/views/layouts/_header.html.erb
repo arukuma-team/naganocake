@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav">
-  
+
           <% if member_signed_in? %>
           <li class="welcome">ようこそ、<%= current_member.lastname %>さん！&nbsp;&nbsp;</li>
           <li>&nbsp;&nbsp;</li>
@@ -17,7 +17,7 @@
           <li><%= link_to "Items", members_items_path, class: "nav-item nav-link" %></li>
           <li class="nav-item nav-link disabled" href="/members/cart_items">Cart items</li>
           <li><%= link_to "Logout", destroy_member_session_path, method: :delete, class: "nav-item nav-link" %></li>
-       
+
           <% elsif admin_signed_in? %>
           <li>&nbsp;&nbsp;</li>
           <li>&nbsp;&nbsp;</li>
@@ -27,7 +27,7 @@
           <li class="nav-item nav-link" href="/admins/members">Members</li>
           <li class="nav-item nav-link" href="/admins/categories">Categories</li>
           <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "nav-item nav-link" %></li>
-          
+
           <% else %>
           <li>&nbsp;&nbsp;</li>
           <li>&nbsp;&nbsp;</li>
@@ -37,7 +37,7 @@
           <li><%= link_to "Login", new_member_session_path, class: "nav-item nav-link" %></li>
           <li><%= link_to "Admin_login", new_admin_session_path, class: "nav-item nav-link" %></li>
           <% end %>
-      
+
         </ul>
       </div>
     </div>
