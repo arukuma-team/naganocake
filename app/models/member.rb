@@ -4,4 +4,13 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+
+  has_one :order, dependent: :destroy
+
+
+  include Discard::Model
+  default_scope -> { kept }
+  def active_for_authentication?
+    super && kept?
+  end
 end
