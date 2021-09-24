@@ -1,0 +1,73 @@
+ <div class="container">
+   <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+   <h2>会員情報編集</h2>
+<%= form_with model: @member, url: admin_member_path, local:true do |member| %>
+
+<table class="table">
+  <tr>
+    <th>氏名</th>
+    <th>
+      <%= member.text_field :lastname, class: 'form-control' %>
+    </th>
+    <th>
+      <%= member.text_field :firstname, class: 'form-control' %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>フリガナ</th>
+    <th>
+      <%= member.text_field :lastruby, class: 'form-control' %>
+    </th>
+    <th>
+      <%= member.text_field :firstruby, class: 'form-control' %>
+    </th>
+  </tr>
+  
+   <tr>
+    <th> 郵便番号(ハイフンなし)</th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :zip, class: 'form-control' %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>住所</th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :address, class: 'form-control' %>
+    </th>
+  </tr>
+
+  <tr>
+    <th>電話番号(ハイフンなし)</th>
+    <th>
+      &nbsp; &nbsp; <%= member.text_field :tel, class: 'form-control' %>
+    </th>
+  </tr>
+  
+  <tr>
+    <th>メールアドレス</th>
+    <th>
+      <%= member.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </th>
+  </tr>
+ 
+ <tr>
+   <th>会員ステータス</th>
+   <!--退会ステータス-->
+   
+ </tr>
+ 
+</table>
+
+<% end %>
+
+<%= member.submit "編集内容を保存", class: "btn btn-secondary" %>
+
+
+<div class="col-lg-3"></div>
+</div>
+</div>
+</div>

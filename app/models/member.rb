@@ -10,10 +10,8 @@ class Member < ApplicationRecord
   has_many :address, dependent: :destroy
 
 
-  include Discard::Model
-  default_scope -> { kept }
   def active_for_authentication?
-    super && kept?
+    super && (self.status == false)
   end
   
   def full_name
