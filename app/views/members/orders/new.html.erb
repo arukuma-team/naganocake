@@ -1,0 +1,13 @@
+<h2 class="head-line title_h2 text-center">注文情報入力</h2>
+   
+
+<%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
+
+  <h3>支払い方法</h3>
+  
+  <%= f.radio_button :payment_way, 'card', id:'order_card', class:'mr-1' %>
+  <%= f.label :card, "クレジットカード" %><br>
+  <%= f.radio_button :payment_way, 'bank', id:'order_bank', class:'mr-1' %>
+  <%= f.label :bank, "銀行振込" %>
+  
+  

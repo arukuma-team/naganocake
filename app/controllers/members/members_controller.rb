@@ -1,5 +1,7 @@
 class Members::MembersController < ApplicationController
-
+  
+  def index
+  end
     
   def edit
     @member = Member.find(params[:id])

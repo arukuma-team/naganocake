@@ -6,12 +6,12 @@
 
     <div>
      <%= f.label :picture, "商品画像" %>
-     <%= f.attachment_field :picture %>
+      <%= f.attachment_field :picture %>
     </div>
 
     <div>
      <%= f.label :name, "商品名" %>
-     <%= f.text_field :name, placeholder:"商品名" %>
+     &nbsp;&nbsp;&nbsp; <%= f.text_field :name, placeholder:"商品名" %>
     </div>
 
     <div>
@@ -20,8 +20,8 @@
     </div>
 
     <div>
-     <%#= f.label :category_id %>
-
+     <%= f.label :category_id, "カテゴリー"%>
+     <%= f.collection_select :category, Category.all, :id, :category %>
     </div>
 
 
