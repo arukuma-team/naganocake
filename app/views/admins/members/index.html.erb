@@ -11,9 +11,9 @@
       <tbody>
         <% @members.each do |member| %>
           <tr>
-            <td><%#= link_to member.name, admins_member_path(member), class: "member_#{member.id}" %></td>
+            <td><%= link_to "#{member.lastname} #{member.firstname}", admins_member_path(member.id) %></td>
             <td>
-              <% if member.discarded? %>
+              <% if member.status? %>
                <h5><span class="badge rounded-pill bg-danger">退会</span></h5>
               <% else %>
                <h5><span class="badge rounded-pill bg-primary">有効</span></h5>

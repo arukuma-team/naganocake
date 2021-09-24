@@ -7,15 +7,10 @@ class Member < ApplicationRecord
 
   has_one :order, dependent: :destroy
 
-  has_many :address, dependent: :destroy
+  has_many :addresses, dependent: :destroy
 
 
   def active_for_authentication?
     super && (self.status == false)
   end
-  
-  def full_name
-    self.first_name + self.last_name
-  end
-
 end
