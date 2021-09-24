@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2021_09_24_055333) do
     t.string "zip"
     t.text "address"
     t.string "tel"
-    t.boolean "status", default: false, null: false
+    t.boolean "status"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
