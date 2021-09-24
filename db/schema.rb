@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_050344) do
+ActiveRecord::Schema.define(version: 2021_09_24_055333) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "member_id"
@@ -73,9 +73,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_050344) do
     t.string "zip"
     t.text "address"
     t.string "tel"
-    t.boolean "status"
-    t.datetime "discarded_at"
-    t.index ["discarded_at"], name: "index_members_on_discarded_at"
+    t.boolean "status", default: false, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end

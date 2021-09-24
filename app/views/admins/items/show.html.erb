@@ -29,9 +29,11 @@
              <h5><span class="badge rounded-pill bg-secondary">販売停止中</span></h5>
             <% end %>
           </td>
-          <td><%#= link_to 'Edit', edit_item_path(@item), class: "btn btn-sm btn-success edit_item_#{@item.id}" %></td>
+          <td><%= link_to 'Edit', edit_admins_item_path, class: "btn btn-sm btn-success" %></td>
+          <td><%= link_to 'Delete', admins_item_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %></td>
         </tr>
       </table>
+      <h5><%= link_to '戻る', admins_items_path %></h5>
     </div>
   </div>
 </div>
