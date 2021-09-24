@@ -1,41 +1,56 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-3">
 
     <%= render 'members/items/category', categories: @categories %>
 
     </div>
+    
     <div class="col-md-8 offset-md-1">
       <h3>ようこそ、naganocakeへ！</h3>
       <h5>このサイトはケーキ販売のECサイトとなります。</h5>
       <%= image_tag 'sc-012-2.jpg', class:'top' %>
     </div>
+    
   </div>
+  
+  <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;新着商品</h3>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    
+    
+      <% @items.reverse_each do |item,n| %>
+        <div class="col-md-2">
+          <p><%= attachment_image_tag item, :picture, :fill, 100, 100, format: 'jpeg', fallback: "noimage.jpg" %></p>
+          <p>【<%= item.name %>】</p>
+          <p>￥<%= item.price %>(税抜)</p>
+        </div>
+      <% break if n== 4 %>  
+      <% end %>
+    </div>
+  <div>
+  
   <div class="row">
     <div class="col-md-3">
     </div>
     <div class="col-md-8 offset-md-1">
-    <h3>新着商品</h3>
-    <% @items.reverse_each do |item,n| %>
-      <div>
-
-        <%= attachment_image_tag item, :picture, :fill, 100, 100, format: 'jpeg' %>
-        <%= item.name %>
-        <%= item.price %>
-        break if n== 4
-      </div>
-    <% end %>
-    <%= link_to "全ての商品を見る", members_items_path %>
+      <%= link_to "全ての商品を見る", members_items_path %>
     </div>
   </div>
+  
+</div>
+  
+  
 
 
 
-
-
-      </table>
-    </div>
+    
   </div>
-
 </div>
