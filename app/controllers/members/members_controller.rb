@@ -1,8 +1,8 @@
 class Members::MembersController < ApplicationController
-  
+
   def index
   end
-    
+
   def edit
     @member = Member.find(params[:id])
       if @member != current_member
@@ -22,10 +22,10 @@ class Members::MembersController < ApplicationController
   def show
     @member = current_member
   end
-end
+
 
 private
 
 def member_params
   params.require(:member).permit(:lastname, :firstname, :lastruby, :firstruby, :zip, :address, :tel, :email, :status)
-end
+endend
