@@ -3,7 +3,7 @@ class Members::AddressesController < ApplicationController
    before_action :authenticate_member!
 
   def index
-      @addresses = current_member.address
+      @addresses = current_member.addresses
       @address = Address.new
   end
 
@@ -11,7 +11,7 @@ class Members::AddressesController < ApplicationController
   def create
       @address = Address.new(address_params)
       @address.member_id = current_member.id
-      @addresses = current_member.address
+      @addresses = current_member.addresses
        if @address.save
           flash[:notice] = "新規配送先を登録しました"
           redirect_to "/members/addresses"
