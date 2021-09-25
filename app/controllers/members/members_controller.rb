@@ -28,4 +28,6 @@ private
 
 def member_params
   params.require(:member).permit(:lastname, :firstname, :lastruby, :firstruby, :zip, :address, :tel, :email, :status)
-endend
+end
+
+end
