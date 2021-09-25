@@ -1,54 +1,60 @@
-<h2>Mypage</h2>
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-8 offset-md-2">
+      <h2>Mypage</h2>
 
-<table>
-   <tr>
-      <td>
-       <h3><strong>登録情報</strong></h3>
-      </td>
-      <td><%= link_to '編集する', class: "btn btn-sm btn-success" %></td>
-   </tr>
-</table>
+        <table>
+          <tr>
+            <td>
+              <h3><strong>登録情報</strong></h3>
+            </td>
+            <td><%= link_to '編集', edit_members_member_path(current_member.id), class: "btn btn-sm btn-success" %></td>
+          </tr>
+        </table>
 
-<table class='table'>
-  <tr>
-    <td>氏名</td>
-    <td><%= current_member.lastname %></td>
-    <td><%= current_member.firstname %></td>
-  </tr>
-  <tr>
-    <td>カナ</td>
-    <td><%= current_member.lastruby %></td>
-    <td><%= current_member.firstruby %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= current_member.zip %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= current_member.address %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= current_member.tel %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= current_member.email %></td>
-    <td></td>
-  </tr>
-</table>
+        <table class="table">
+          <tr>
+            <td>氏名</td>
+            <td><%= current_member.lastname %></td>
+            <td><%= current_member.firstname %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= current_member.lastruby %></td>
+            <td><%= current_member.firstruby %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= current_member.zip %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= current_member.address %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= current_member.tel %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= current_member.email %></td>
+            <td></td>
+          </tr>
+        </table>
 
-<table>
-  <tr>
-    <td>配送先</td>
-    <td class="btn btn-primary" href="#" role="button">一覧を見る</td>
-  </tr>
-  <tr>
-    <td>注文履歴</td>
-    <td class="btn btn-primary" href="#" role="button">一覧を見る</td>
-  </tr>
-</table>
+        <table>
+          <tr>
+            <td>配送先</td>
+            <td><%= link_to '一覧を見る', members_addresses_path, class: "btn btn-primary" %></td>
+          </tr>
+          <tr>
+            <td>注文履歴</td>
+            <td class="btn btn-primary" href="#" role="button">一覧を見る</td>
+          </tr>
+        </table>
+    </div>
+  </div>
+</div>
