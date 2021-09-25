@@ -72,3 +72,5 @@ gem "refile-mini_magick"
 gem 'carrierwave'
 
 gem 'discard'
+
+gem 'jquery-rails'
