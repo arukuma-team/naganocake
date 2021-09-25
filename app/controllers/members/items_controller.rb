@@ -1,7 +1,7 @@
 class Members::ItemsController < ApplicationController
   
   def index
-    @items = Item.all
+    @items = Item.paginate(page: params[:page], per_page: 2)
     @categories = Category.all
   end
   
