@@ -17,7 +17,9 @@ class Members::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_fee = 300
     @order.payment_method = params[:order][:payment_method]
-
+    
+    
+        
     #お届け先
     #if params[:order][:address_num] == "0"
       #@addresses = Addresses.find(params[:order][:address_box])
