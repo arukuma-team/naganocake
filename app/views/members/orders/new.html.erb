@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h2 class="head-line title_h2 text-center">注文情報入力</h2>
-          <%= form_with(model:@order, url: orders_confirm_path, local: true) do |f| %>
+          <%= form_with(model:@order, url: members_orders_confirm_path, local: true) do |f| %>
             <h3>支払い方法</h3>
                 <%= f.radio_button :payment_way, :クレジットカード,  checked: "checked" %>
                 <%= f.label :payment_method, "クレジットカード" %>
