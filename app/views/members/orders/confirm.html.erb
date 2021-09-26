@@ -2,7 +2,8 @@
   <h4>注文情報確認</h4>
     <div class="row">
           <div class="col">
-            <table>
+            <% if current_member.cart_items.present? %>
+            <table class="table">
               <thead>
                 <tr>
                   <th>商品名</th>
@@ -12,32 +13,32 @@
                 </tr>
               </thead>
               <tbody>
-                <%# @sum = 0 %>
                 <%# @cart_items.each do |cart_item| %>
                   <tr>
                     <td><%#= cart_item.item.name  %></td>
-                    <td><%#= cart_item.item.add_tax_price %></td>
-                    <td><%#= cart_item.amount %></td>
+                    <td><%#= cart_item.item.price %></td>
+                    <td><%#= cart_item.piece %></td>
+                    
+                    
                     <td><%#= cart_item.item.add_tax_price * cart_item.amount %></td>
+                        <!--↑カートと似た記述になると思います-->
                   </tr>
-                <%# @sum += cart_item.item.add_tax_price * cart_item.amount %>
-                <%# end %>
               </tbody>
             </table>
           </div>
           <div class="col">
-            <table>
+            <table class="table">
               <tr>
                 <th>送料</th>
                 <td><%= @order.shipping_fee %></td>
               </tr>
               <tr>
                 <th>商品合計</th>
-                <td><%= @sum %></td>
+                <td><%#= @sum %></td>
               </tr>
               <tr>
                 <th>請求金額</th>
-                <td><%#= @order.shipping_fee + @sum %></td>
+                <td><%#= @order.order_amount + @sum %></td>
               </tr>
             </table>
           </div>
@@ -57,13 +58,18 @@
               <div class="col-6">
                 <%= form_with model:@order, url: orders_confirm_path, local:true do |f| %>
                   <%= f.hidden_field :payment_method %>
-                  <%= f.hidden_field :postcode %>
+                  <%= f.hidden_field :zip %>
                   <%= f.hidden_field :address %>
                   <%= f.hidden_field :name %>
                   <%= f.hidden_field :shipping_fee %>
                   <%#= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
+                  <!--合計金額？-->
                   <%= f.submit "注文確定" %>
               </div>
                 <% end %>
   </div>
+  <% else %>
+  <p>お客様のショッピングカートに商品はありませんので注文確定ができません。</p>
+  <p><%= link_to "商品一覧", item_path %>から商品をお探し下さい。</p>
+    <% end %>
 </div>
