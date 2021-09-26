@@ -73,4 +73,7 @@ gem 'carrierwave'
 
 gem 'discard'
 
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 gem 'jquery-rails'

@@ -10,10 +10,10 @@
                 <%= f.label :payment_method, "銀行振込" %>
             <h3>お届け先</h3>
                 <div>
-                <%= f.radio_button :address_num,0 %>
+                 <%= f.radio_button :address_num,0 %>
                 <%= f.label :address, "登録済み住所選択" %>
-                <%#= f.collection_select :addresses, @member_address.all, :id, :address_all %>
-                </div>
+                <%= f.collection_select(:address_id, @addresses, :id, :view_address, include_blank: '選択してください') %>
+
                 <div>
                 <%= f.radio_button :address_num,1 %>
                 <%= f.label :address, "新しいお届け先" %>

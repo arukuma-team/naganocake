@@ -1,8 +1,10 @@
 class Members::OrdersController < ApplicationController
-
+  
   def new
     @order = Order.new
-    @member_address = current_member.addresses
+    @member = Member.all
+    @addresses = current_member.addresses
+  #  ↑メールアドレスを表記させるのに必要なので
   end
   
   def confirm
@@ -134,7 +136,14 @@ end
     #@orders = @customer.orders.page(params[:page]).per(6).order(created_at: 'DESC')
   #end
 
+<<<<<<< HEAD
   #def thanks
+=======
+  def index
+    @orders = current_member.orders.all
+    # page(params[:page]).per(6).order(created_at: 'DESC')
+  end
+>>>>>>> develop
 
   #end
 
@@ -144,9 +153,22 @@ end
     #@customer = current_customer
   #end
 
+<<<<<<< HEAD
   #def order_params
     #params.require(:order)
     #.permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_tatus)
     #.merge(customer_id: current_customer.id)
   #end
   #end
+=======
+  def set_current_customer
+    @customer = current_customer
+  end
+
+  def order_params
+    params.require(:order)
+    .permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_status)
+    .merge(customer_id: current_customer.id)
+  end
+end
+>>>>>>> develop

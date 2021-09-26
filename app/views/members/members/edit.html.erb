@@ -1,74 +1,79 @@
-<h2>会員情報編集</h2>
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-6 offset-md-3">
 
-<%= form_with model: @member, url: members_member_path, local:true do |member| %>
+    <h2>会員情報編集</h2>
 
-<table>
-  
-  <tr>
-    <th>
-      氏名
-    </th>
-    <th>
-      <%= member.text_field :lastname %>
-    </th>
-    <th>
-      <%= member.text_field :firstname %>
-    </th>
-  </tr>
-  
-  <tr>
-    <th>
-      フリガナ
-    </th>
-    <th>
-      <%= member.text_field :lastruby %>
-    </th>
-    <th>
-      <%= member.text_field :firstruby %>
-    </th>
-  </tr>
-  
-   <tr>
-    <th>
-      郵便番号(ハイフンなし)
-    </th>
-    <th>
-      &nbsp; &nbsp; <%= member.text_field :zip %>
-    </th>
-  </tr>
-  
-  <tr>
-    <th>
-      住所
-    </th>
-    <th>
-      &nbsp; &nbsp; <%= member.text_field :address %>
-    </th>
-  </tr>
+    <%= form_with model: @member, url: members_member_path, local:true do |member| %>
 
-  <tr>
-    <th>
-      電話番号(ハイフンなし)
-    </th>
-    <th>
-      &nbsp; &nbsp; <%= member.text_field :tel %>
-    </th>
-  </tr>
+    <table>
   
-  <tr>
-    <th>
-      メールアドレス
-    </th>
-    <th>
-      <%= member.email_field :email, autofocus: true, autocomplete: "email" %>
-    </th>
-  </tr>
+      <tr>
+        <th>
+          氏名
+        </th>
+        <th>
+          &nbsp;&nbsp;&nbsp;&nbsp;<%= member.text_field :lastname %>
+        </th>
+        <th>
+          &nbsp;&nbsp;&nbsp;<%= member.text_field :firstname %>
+        </th>
+      </tr>
+  
+      <tr>
+        <th>
+          フリガナ
+        </th>
+        <th>
+          &nbsp;&nbsp;&nbsp;&nbsp;<%= member.text_field :lastruby %>
+        </th>
+        <th>
+          &nbsp;&nbsp;&nbsp;<%= member.text_field :firstruby %>
+        </th>
+      </tr>
+  
+      <tr>
+        <th>
+          郵便番号(ハイフンなし)
+        </th>
+        <th>
+          &nbsp; &nbsp; <%= member.text_field :zip %>
+        </th>
+      </tr>
+  
+      <tr>
+        <th>
+          住所
+        </th>
+        <th>
+          &nbsp; &nbsp; <%= member.text_field :address %>
+        </th>
+      </tr>
+
+      <tr>
+        <th>
+          電話番号(ハイフンなし)
+        </th>
+        <th>
+          &nbsp; &nbsp; <%= member.text_field :tel %>
+        </th>
+      </tr>
+  
+      <tr>
+        <th>
+          メールアドレス
+        </th>
+        <th>
+          &nbsp;&nbsp;&nbsp;&nbsp;<%= member.email_field :email, autofocus: true, autocomplete: "email" %>
+        </th>
+      </tr>
  
-</table>
+    </table>
 
-<% end %>
+    <% end %>
 
-<%= member.submit "編集内容を保存", class: "btn btn-secondary" %>
-</br>
-<%= link_to '退会する', class: "btn btn-secondary" %>
-
+    </br>
+    <%= link_to '退会する', members_quit_members_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
