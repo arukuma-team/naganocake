@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/about' => 'members/homes#about'
   get '/admins' => 'admin/homes#top'
   post 'orders/confirm' => 'members/orders#confirm'
-  get '/orders/complete' => 'members/orders#complete'
+  get 'orders/complete' => 'members/orders#complete'
 
   namespace :admins do
     resources :items
@@ -43,10 +43,10 @@ Rails.application.routes.draw do
     end
     resources :categories
     resources :ordered_items
-    resources :orders
       get "orders/confirm" => "orders#confirm"
       post "orders/confirm" => "orders#confirm"
-      get "orders/complete" => "orders#complete"
+      get 'orders/complete' => 'orders#complete'
+    resources :orders, only: [:index, :show, :create, :new]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

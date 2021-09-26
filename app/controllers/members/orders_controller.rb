@@ -34,19 +34,23 @@ class Members::OrdersController < ApplicationController
   end
 
   def create
+    @addresses = current_member.addresses
     @order = Order.new(order_params)
     #@order.status = 0
     @order.member_id = current_member.id
     @order.save
-  unless Member.where(id: order.member_id).where(zip: order.delivery_zip).where(address: order.delivery_address) || Addresses.where(member_id: order.member_id).where(name: order.delivery_name).where(zip: order.delivery_zip).where(address: order.delivery_address).exits?
-    @addresses = Addresses.new
-    @addresses.member_id = order.member_id
-    @addresses.name = order.delivery_name
-    @addresses.zip = order.delivery_zip
-    @addresses.address = order.delivery_address
-    @addresses.save
+  unless Member.where(id: @order.member_id).where(zip: @order.delivery_zip).where(address: @order.delivery_address) || Address.where(member_id: @order.member_id).where(name: @order.delivery_name).where(zip: @order.delivery_zip).where(address: order.delivery_address).exits?
+    @address = Address.new
+    @address.member_id = order.member_id
+    @address.name = order.delivery_name
+    @address.zip = order.delivery_zip
+    @address.address = order.delivery_address
+    @address.save
   end
     redirect_to members_orders_complete_path
+  end
+
+  def complete
   end
 
   private
