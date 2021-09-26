@@ -1,5 +1,6 @@
 class CartItem < ApplicationRecord
+  belongs_to :member
   belongs_to :item
-  belongs_to :order
-  
+  validates :member_id, :item_id, :piece, presence: true
+  validates :piece, numericality: { only_integer: true }
 end

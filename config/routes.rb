@@ -36,7 +36,11 @@ Rails.application.routes.draw do
       get 'members/:id/quit' => 'unsubscribe#quit', as: 'quit_members'
       patch 'members/out/:id' => 'unsubscribe#out', as: 'out_member'
     resources :addresses,only: [:new, :create, :index, :edit, :update, :destroy]
-    resources :cart_items
+    resources :cart_items,only: [:create, :index, :update, :destroy] do
+      collection do
+        delete '/' => 'cart_items#destroy_all'
+      end
+    end
     resources :categories
     resources :ordered_items
     resources :orders
