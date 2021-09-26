@@ -15,7 +15,7 @@
           <td><%= address.address %></td>
           <td><%= address.name %></td>
           <td><%= link_to '編集する', edit_members_address_path(address), class: "btn btn-sm btn-success" %></td>
-          <td><%= link_to '削除する', members_address_path(address), method: :delete, data: 
+          <td><%= link_to '削除する', members_address_path(address), method: :delete, data:
           {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-secondary" %></td>
         </tr>
        <% end %>

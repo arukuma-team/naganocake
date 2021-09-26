@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   
   validates :addresses, presence: true
   
+  
 end
