@@ -2,7 +2,7 @@
   <h4>注文情報確認</h4>
     <div class="row">
           <div class="col">
-            <% if current_member.cart_items.present? %>
+            <%# if current_member.cart_items.present? %><!--エラー発生のためコメントアウトしています-->
             <table class="table">
               <thead>
                 <tr>
@@ -49,18 +49,20 @@
           <div class="container">
             <h5>お届け先</h5>
             <span>〒</span>
-            <%#= @order.zip %><br>
-            <%#= @order.address %><br>
-            <%#= @order.name %><br>
+            <%= @order.delivery_zip %><br>
+            <%= @order.delivery_address %><br>
+            <%= @order.delivery_name %><br>
           </div>
+          <!--上記は実際に表示される記述-->
+          <!--下記は確認画面表示のための記述(hidden_fieldのため実際に表示されません)-->
           <div class="container">
             <div class="col-5 confirm_image"></div>
               <div class="col-6">
-                <%= form_with model:@order, url: orders_confirm_path, local:true do |f| %>
+                <%= form_with model:@order, url: members_orders_path, local:true do |f| %>
                   <%= f.hidden_field :payment_method %>
-                  <%= f.hidden_field :zip %>
-                  <%= f.hidden_field :address %>
-                  <%= f.hidden_field :name %>
+                  <%= f.hidden_field :delivery_zip %>
+                  <%= f.hidden_field :delivery_address %>
+                  <%= f.hidden_field :delivery_name %>
                   <%= f.hidden_field :shipping_fee %>
                   <%#= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
                   <!--合計金額？-->
@@ -68,8 +70,8 @@
               </div>
                 <% end %>
   </div>
-  <% else %>
+  <%# else %><!--エラー発生のためコメントアウトしています-->
   <p>お客様のショッピングカートに商品はありませんので注文確定ができません。</p>
-  <p><%= link_to "商品一覧", item_path %>から商品をお探し下さい。</p>
-    <% end %>
+  <p><%#= link_to "商品一覧", item_path %>から商品をお探し下さい。</p>
+    <%# end %>
 </div>
