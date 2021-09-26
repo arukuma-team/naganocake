@@ -1,5 +1,10 @@
 class Members::OrdersController < ApplicationController
   
+  def index
+    @orders = current_member.orders.all
+    # page(params[:page]).per(6).order(created_at: 'DESC')
+  end
+  
   def new
     @order = Order.new
     @member = Member.all
@@ -45,8 +50,15 @@ class Members::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:member_id, :shipping_fee, :order_amount,:payment_method, :delivery_name, :delivery_address, :delivery_zip, :order_status)
+    params.require(:order)
+    .permit(:member_id, :shipping_fee, :order_amount,:payment_method, :delivery_name, :delivery_address, :delivery_zip, :order_status)
   end
+  
+  #def order_params
+    #params.require(:order)
+    #.permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_status)
+    #.merge(customer_id: current_customer.id)
+  #end
 end
 
 
@@ -135,40 +147,8 @@ end
   #def index
     #@orders = @customer.orders.page(params[:page]).per(6).order(created_at: 'DESC')
   #end
-
-<<<<<<< HEAD
-  #def thanks
-=======
-  def index
-    @orders = current_member.orders.all
-    # page(params[:page]).per(6).order(created_at: 'DESC')
-  end
->>>>>>> develop
-
-  #end
-
   #private
 
   #def set_current_customer
     #@customer = current_customer
   #end
-
-<<<<<<< HEAD
-  #def order_params
-    #params.require(:order)
-    #.permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_tatus)
-    #.merge(customer_id: current_customer.id)
-  #end
-  #end
-=======
-  def set_current_customer
-    @customer = current_customer
-  end
-
-  def order_params
-    params.require(:order)
-    .permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_status)
-    .merge(customer_id: current_customer.id)
-  end
-end
->>>>>>> develop
