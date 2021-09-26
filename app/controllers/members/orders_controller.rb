@@ -3,6 +3,8 @@ class Members::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = Member.all
+    @addresses = current_member.addresses
+  #  ↑メールアドレスを表記させるのに必要なので
   end
   
    def confirm
