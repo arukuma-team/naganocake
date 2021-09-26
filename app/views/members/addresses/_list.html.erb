@@ -1,23 +1,17 @@
-<table class="table">
-          <thead>
-           <tr>
-             <th>〒</th>
-             <th>住所</th>
-             <th>名前</th>
-             <th colspan="4"></th>
-           </tr>
-         </thead>
-
-        <tbody>
+ 
         <% addresses.each do |address| %>
-         <tr>
-          <td><%= address.zip %></td>
-          <td><%= address.address %></td>
-          <td><%= address.name %></td>
-          <td><%= link_to '編集する', edit_members_address_path(address), class: "btn btn-sm btn-success" %></td>
-          <td><%= link_to '削除する', members_address_path(address), method: :delete, data:
-          {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-secondary" %></td>
-        </tr>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <p class="font-weight-bold">郵便番号</p>
+          <p><%= address.zip %></p>
+          <p class="font-weight-bold">住所</p>
+          <p><%= address.address %></p>
+          <p class="font-weight-bold">宛先</p>
+          <p><%= address.name %></p>
+          <a><%= link_to '編集', edit_members_address_path(address), class: "btn btn-outline-info" %></a>
+          <a><%= link_to '削除', members_address_path(address), method: :delete, data:{confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-outline-danger" %></a>
+         </div>
        <% end %>
-      </tbody>
-      </table>
+      
+        
+
+     
