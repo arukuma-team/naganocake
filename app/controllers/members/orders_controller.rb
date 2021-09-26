@@ -1,5 +1,5 @@
 class Members::OrdersController < ApplicationController
-
+  
   def new
     @order = Order.new
     @customer = Member.all
@@ -69,7 +69,8 @@ class Members::OrdersController < ApplicationController
   end
 
   def index
-    @orders = @customer.orders.page(params[:page]).per(6).order(created_at: 'DESC')
+    @orders = current_member.orders.all
+    # page(params[:page]).per(6).order(created_at: 'DESC')
   end
 
   def thanks
@@ -84,7 +85,7 @@ class Members::OrdersController < ApplicationController
 
   def order_params
     params.require(:order)
-    .permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_tatus)
+    .permit(:zip, :address, :lastname, :shipping_fee, :order_amount, :payment_method, :orders_status)
     .merge(customer_id: current_customer.id)
   end
 end
