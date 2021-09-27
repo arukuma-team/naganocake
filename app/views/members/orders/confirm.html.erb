@@ -21,7 +21,7 @@
                     <td>￥<%= ((cart_item.item.price*1.08)*(cart_item.piece)).round.to_s(:delimited, delimiter: ',') %></td>
                         <% @sum += (cart_item.item.price*1.08)*(cart_item.piece).round %>
                   </tr>
-                  <% end %>
+                  <% end %>        
               </tbody>
             </table>
           </div>
