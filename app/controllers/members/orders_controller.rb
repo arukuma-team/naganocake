@@ -13,7 +13,7 @@ class Members::OrdersController < ApplicationController
   end
 
   def confirm
-    #@cart_items = current_member.cart_items
+    @cart_items = current_member.cart_items
     @order = Order.new(order_params)
     @order.shipping_fee = 300
     @order.payment_method = params[:order][:payment_method]
@@ -36,9 +36,24 @@ class Members::OrdersController < ApplicationController
   def create
     @addresses = current_member.addresses
     @order = Order.new(order_params)
-    #@order.status = 0
+    @order.order_status = 0
     @order.member_id = current_member.id
     @order.save
+
+    #商品情報の保存
+    cart_items = current_member.cart_items
+    cart_items.each do |item|
+      ordered_item = OrderedItem.new
+      ordered_item.order_id = @order.id
+      ordered_item.item_id = item.item.id
+      ordered_item.piece = item.piece
+      #ordered_item.price_taxin = item.price
+      ordered_item.making_status = 0
+      ordered_item.save
+    end
+    current_member.cart_items.destroy_all
+
+    #配送先情報の保存
   unless Member.where(id: @order.member_id).where(zip: @order.delivery_zip).where(address: @order.delivery_address) || Address.where(member_id: @order.member_id).where(name: @order.delivery_name).where(zip: @order.delivery_zip).where(address: order.delivery_address).exits?
     @address = Address.new
     @address.member_id = order.member_id

@@ -9,7 +9,7 @@ class Member < ApplicationRecord
 
   has_many :addresses, dependent: :destroy
 
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
 
 
   def active_for_authentication?

@@ -13,16 +13,17 @@
                 </tr>
               </thead>
               <tbody>
-                <%# @cart_items.each do |cart_item| %>
+                <% @cart_items.each do |cart_item| %>
                   <tr>
-                    <td><%#= cart_item.item.name  %></td>
-                    <td><%#= cart_item.item.price %></td>
-                    <td><%#= cart_item.piece %></td>
-                    
-                    
-                    <td><%#= cart_item.item.add_tax_price * cart_item.amount %></td>
+                    <td><%= cart_item.item.name %></td>
+                    <td><%= cart_item.item.price %></td>
+                    <td><%= cart_item.piece %></td>
+
+
+                    <td><%#= cart_item.item.price * cart_item.piece %></td>
                         <!--↑カートと似た記述になると思います-->
                   </tr>
+                   <% end %>
               </tbody>
             </table>
           </div>
