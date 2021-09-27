@@ -14,7 +14,7 @@
   		    <td><%= attachment_image_tag @item, :picture, :fill, 100, 100, format: 'jpeg' %></td>
           <td><%= @item.name %></td>
           <td><%= @item.description %></td>
-          <td><%#= ((@item.price * 1.1).round).to_s(:delimited) %></td>
+          <td>￥<%= @item.price %></td>
           <td>
             <h5><span class="badge rounded-pill bg-primary">カテゴリー</span><h5>
           </td>

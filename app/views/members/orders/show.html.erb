@@ -3,7 +3,7 @@
     <h4>注文履歴詳細</h4>
       <div class="row">
       <div class="col-7"><p class="font-weight-bold">注文情報</p></div>
-            <div class="col-3">請求情報</div>
+            <div class="col-3"></div>
               <table>
                 <tr>
                   <th>注文日</th><th><%= @order.created_at.strftime('%Y/%m/%d') %></th>
@@ -17,17 +17,7 @@
                 <tr><th>ステータス</th><th><%= @order.order_status %></th>
                 </tr>
               </table>
-              <table>
-                  <tr>
-                    <th>小計</th><th><%#= @order.price - @order.shipping_fee %>円</th>
-                  </tr>
-                  <tr>
-                    <th>配送料</th><th><%#= @order.shipping_fee %>円</th>
-                  </tr>
-                  <tr>
-                    <th>ご請求額</th><th><%#= @order.price %>円</th>
-                  </tr>
-              </table>
+
             </div>
             <div class="row">注文内容</div>
               <table>
@@ -36,13 +26,15 @@
                   <th>単価（税込）</th>
                   <th>個数</th>
                   <th>小計</th>
+                  <th>配送料</th>
                 </tr>
               <% @order_items.each do |ordered_item| %>
                 <tr>
                   <th><%= ordered_item.item.name %></th>
-                  <th><%#= ordered_item.item.price %>円</th>
+                  <th><%= (ordered_item.item.price)*(@tax) %>円</th>
                   <th><%= ordered_item.piece %>個</th>
-                  <th><%#= ordered_item.item.price * ordered_item.piece %>円</th>
+                  <th><%= (ordered_item.item.price)*(ordered_item.piece) %>円</th>
+
                 </tr>
               <% end %>
             </table>
