@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/admins' => 'admin/homes#top'
   post 'orders/confirm' => 'members/orders#confirm'
   get 'orders/complete' => 'members/orders#complete'
+  
 
   namespace :admins do
     resources :items
