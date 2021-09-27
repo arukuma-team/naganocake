@@ -1,45 +1,45 @@
 <div class="container">
   <div class="row">
-   <h3>商品新規登録a</h3>
+   <h3>商品新規登録</h3>
 
-   <%= form_with model: @item, url: '/admins/items', local:true do |f| %>
+   <%= form_with model: @item, url: admins_items_path, local:true do |f| %>
 
-    <div>
-     <%= f.label :picture, "商品画像" %>
-      <%= f.attachment_field :picture %>
-    </div>
-
-    <div>
-     <%= f.label :name, "商品名" %>
-     &nbsp;&nbsp;&nbsp; <%= f.text_field :name, placeholder:"商品名" %>
-    </div>
-
-    <div>
-     <%= f.label :description, "商品説明" %>
-     <%= f.text_area :description, placeholder:"ここに説明文を記述します" %>
-    </div>
-
-    <div>
-     <%= f.label :category_id, "カテゴリー"%>
-     <%= f.collection_select :category, Category.all, :id, :category %>
-    </div>
-
-
-    <div>
-     <%= f.label :price, "税抜価格" %>
-     <%= f.text_field :price %>円
-    </div>
-
-    <div>
-     <%= f.label :status, "販売ステータス" %>
      <div>
-      <%= f.radio_button :status, true %>
-      <%= f.label :status, '販売中', value: true %>
+       <%= f.label :picture, "商品画像" %>
+       <%= f.attachment_field :picture %>
      </div>
+
      <div>
-      <%= f.radio_button :status, false %>
-      <%= f.label :status, '販売停止中', value: false %>
+       <%= f.label :name, "商品名" %>
+       &nbsp;&nbsp;&nbsp; <%= f.text_field :name, placeholder:"商品名" %>
      </div>
+
+     <div>
+       <%= f.label :description, "商品説明" %>
+       <%= f.text_area :description, placeholder:"ここに説明文を記述します" %>
+      </div>
+
+      <div>
+        <%= f.label :category_id, "カテゴリー"%>
+        <%= f.collection_select :category_id, Category.all, :id, :category %>
+      </div>
+
+
+      <div>
+        <%= f.label :price, "税抜価格" %>
+        <%= f.text_field :price %>円
+      </div>
+
+      <div>
+       <%= f.label :status, "販売ステータス" %>
+      <div>
+        <%= f.radio_button :status, true %>
+        <%= f.label :status, '販売中', value: true %>
+      </div>
+      <div>
+        <%= f.radio_button :status, false %>
+        <%= f.label :status, '販売停止中', value: false %>
+      </div>
     </div>
 
     <div>

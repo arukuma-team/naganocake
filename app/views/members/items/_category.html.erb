@@ -9,7 +9,11 @@
   <tbody>
   <% categories.each do |category| %>  
     <tr>
-      <td><%= category.category %></td>
+      <td>
+        <%= link_to members_items_path(select_categories: category.id), class:'text-dark font-weight-bold' do %>
+        <%= category.category %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>

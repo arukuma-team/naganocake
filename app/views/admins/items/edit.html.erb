@@ -2,7 +2,7 @@
    <h3>商品編集</h3>
   <div class="row">
 
-   <%= form_with model: @item, url: admins_item_path, local:true do |f| %>
+   <%= form_with model: @item, url: admins_items_path, local:true do |f| %>
 
     <div>
      <%= f.label :picture, "商品画像" %>
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-     <%#= f.label :category_id %>
+     <%= f.collection_select :category_id, Category.all, :id, :category, {prompt: ""}, class: "col-7 p-0" %>
 
     </div>
 
