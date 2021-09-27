@@ -4,10 +4,11 @@ class Members::OrdersController < ApplicationController
     @orders = current_member.orders.all
     # page(params[:page]).per(6).order(created_at: 'DESC')
   end
-  
+
   def show
     @order = Order.find(params[:id])
     @order_items = @order.ordered_items
+    @tax = 1.08
   end
 
   def new
