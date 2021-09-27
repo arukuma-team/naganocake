@@ -3,7 +3,9 @@ class Order < ApplicationRecord
 
   has_many :ordered_items, dependent: :destroy
   
-  validates :addresses, presence: true
 
+  #validates :addresses, presence: true
+  
+  
 
 end
