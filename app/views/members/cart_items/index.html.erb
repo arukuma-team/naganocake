@@ -2,7 +2,6 @@
 
 
 	<% if @cart_items.present? %><!-- カートに商品があるとき -->
-
 		<table class="table">
 		 <thead>
 		  <tr>
@@ -18,24 +17,26 @@
 		<% @cart_items.each do |cart_item| %>
 		<tr>
 			<td><%= cart_item.item.name %></td>
-			<td><%= cart_item.item.price %></td>
+			<td><%= ((cart_item.item.price*1.08).round).to_s(:delimited) %></td>
       <td>
       	<%= form_with model: @cart_item, url: members_cart_item_path(cart_item), method: :patch, local: true do |f| %>
       	<%= f.select :piece, [*1..10], selected: cart_item.piece %>
       	<%= f.submit '変更', class:"btn btn-outline-dark" %>
       	<% end %>
       </td>
-			<td></td>
+			<td>
+				￥<%= ((cart_item.item.price*1.08)*(cart_item.piece)).round.to_s(:delimited, delimiter: ',') %>
+
+      </td>
 			<td><%= link_to "削除", members_cart_item_path(cart_item), method: :delete %></td>
-		  <td><%= cart_item.item.price %></td>
-		  <td><%#= (@sum += cart_item.price_taxin.to_i + cart_item.piece.to_i).to_s(:delimited) %></td>
 		</tr>
+		<% @sum += (cart_item.item.price*1.08)*(cart_item.piece).round %>
 		<% end %>
 		</tbody>
 		</table>
 
 
-		<p>合計金額<%#= (@cart_items).to_s(:delimited) %></p>
+		<p>合計金額<%= @sum.round.to_s(:delimited) %>円</p>
 		<p><%= link_to '買い物を続ける', members_items_path %></p>
 		<p><%= link_to "カートを空にする", members_cart_items_path, method: :delete, data: { confirm: "カートを空にしてもよろしいでしょうか？" } %></p>
 	<% else %><!-- カートが空のとき -->
