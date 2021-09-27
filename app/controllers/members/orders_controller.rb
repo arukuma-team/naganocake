@@ -17,6 +17,8 @@ class Members::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_fee = 300
     @order.payment_method = params[:order][:payment_method]
+    @sum = 0
+    @order_amount = 300
 
 
 
@@ -34,6 +36,7 @@ class Members::OrdersController < ApplicationController
   end
 
   def create
+    @cart_items = current_member.cart_items
     @addresses = current_member.addresses
     @order = Order.new(order_params)
     @order.order_status = 0
@@ -62,6 +65,7 @@ class Members::OrdersController < ApplicationController
     @address.address = order.delivery_address
     @address.save
   end
+    @cart_items.destroy_all
     redirect_to members_orders_complete_path
   end
 
