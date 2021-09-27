@@ -2,7 +2,7 @@
   <h4>注文情報確認</h4>
     <div class="row">
           <div class="col">
-            <%# if current_member.cart_items.present? %><!--エラー発生のためコメントアウトしています-->
+            <% if @cart_items.present? %><!--エラー発生のためコメントアウトしています-->
             <table class="table">
               <thead>
                 <tr>
@@ -15,15 +15,13 @@
               <tbody>
                 <% @cart_items.each do |cart_item| %>
                   <tr>
-                    <td><%= cart_item.item.name %></td>
-                    <td><%= cart_item.item.price %></td>
+                    <td><%= cart_item.item.name  %></td>
+                    <td>￥<%= ((cart_item.item.price*1.08).round).to_s(:delimited) %></td>
                     <td><%= cart_item.piece %></td>
-
-
-                    <td><%#= cart_item.item.price * cart_item.piece %></td>
-                        <!--↑カートと似た記述になると思います-->
+                    <td>￥<%= ((cart_item.item.price*1.08)*(cart_item.piece)).round.to_s(:delimited, delimiter: ',') %></td>
+                        <% @sum += (cart_item.item.price*1.08)*(cart_item.piece).round %>
                   </tr>
-                   <% end %>
+                  <% end %>        
               </tbody>
             </table>
           </div>
@@ -31,15 +29,15 @@
             <table class="table">
               <tr>
                 <th>送料</th>
-                <td><%= @order.shipping_fee %></td>
+                <td>￥<%= @order.shipping_fee %></td>
               </tr>
               <tr>
                 <th>商品合計</th>
-                <td><%#= @sum %></td>
+                <td>￥<%= @sum.round.to_s(:delimited) %></td>
               </tr>
               <tr>
                 <th>請求金額</th>
-                <td><%#= @order.order_amount + @sum %></td>
+                <td>￥<%= ((@order_amount)+(@sum)).round.to_s(:delimited) %></td>
               </tr>
             </table>
           </div>
@@ -65,14 +63,14 @@
                   <%= f.hidden_field :delivery_address %>
                   <%= f.hidden_field :delivery_name %>
                   <%= f.hidden_field :shipping_fee %>
-                  <%#= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
+                  <%= f.hidden_field :bill, value: (@sum)+(@order_amount) %>
                   <!--合計金額？-->
                   <%= f.submit "注文確定" %>
               </div>
                 <% end %>
   </div>
-  <%# else %><!--エラー発生のためコメントアウトしています-->
+  <% else %>
   <p>お客様のショッピングカートに商品はありませんので注文確定ができません。</p>
-  <p><%#= link_to "商品一覧", item_path %>から商品をお探し下さい。</p>
-    <%# end %>
+  <p><%= link_to "商品一覧", item_path %>から商品をお探し下さい。</p>
+    <% end %>
 </div>

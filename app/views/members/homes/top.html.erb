@@ -5,24 +5,24 @@
     <%= render 'members/items/category', categories: @categories %>
 
     </div>
-    
+
     <div class="col-md-8 offset-md-1">
       <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       ようこそ、naganocakeへ！</h3>
       <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       このサイトはケーキ販売のECサイトとなります。</h5>
-          
+
     　<div class="a">
         <div class="b"><%= image_tag 'topcake.jpg', :size => '500x320' %></div>
         <div class="b"><%= image_tag 'cookie.jpg', :size => '500x320' %></div>
         <div class="b"><%= image_tag 'creampuff.jpg', :size => '500x320' %></div>
         <div class="b"><%= image_tag 'macaron.jpg', :size => '500x320' %></div>
       </div>
-     
+
       </div>
     </div>
   </div>
-  
+
   <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,12 +34,12 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     新着商品</h3>
-  
+
   <div class="row">
     <div class="col-md-3">
     </div>
-    
-    
+
+
       <% @items.reverse_each do |item,n| %>
         <div class="col-md-2">
           <p><%= attachment_image_tag item, :picture, :fill, 100, 100, format: 'jpeg', fallback: "noimage.jpg" %></p>
@@ -47,10 +47,11 @@
           <p>￥<%= item.price %>(税抜)</p>
         </div>
         <!--< break if n== 4 %>  -->
+
       <% end %>
     </div>
   <div>
-  
+
   <div class="row">
     <div class="col-md-3">
     </div>
@@ -68,6 +69,6 @@
       <%= link_to "全ての商品を見る", members_items_path %>
     </div>
   </div>
-  
+
 </div>
-  
+
