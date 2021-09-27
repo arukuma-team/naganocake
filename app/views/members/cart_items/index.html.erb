@@ -2,6 +2,7 @@
 
 
 	<% if @cart_items.present? %><!-- カートに商品があるとき -->
+
 		<table class="table">
 		 <thead>
 		  <tr>
@@ -36,9 +37,11 @@
 		</table>
 
 
+
 		<p>合計金額<%= @sum.round.to_s(:delimited) %>円</p>
 		<p><%= link_to '買い物を続ける', members_items_path %></p>
 		<p><%= link_to "カートを空にする", members_cart_items_path, method: :delete, data: { confirm: "カートを空にしてもよろしいでしょうか？" } %></p>
+		<p><%= link_to '情報入力に進む', new_members_order_path, class:"btn  btn-success" %></p>
 	<% else %><!-- カートが空のとき -->
 	    <p>カートは空です</p>
 	    <p><%= link_to '買い物を続ける', members_items_path %></p>
