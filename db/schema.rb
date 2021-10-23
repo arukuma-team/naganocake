@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_09_26_095124) do
 
+
   create_table "addresses", force: :cascade do |t|
     t.integer "member_id"
     t.integer "zip"
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_095124) do
     t.text "description"
     t.integer "price"
     t.boolean "status"
+
     t.string "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
