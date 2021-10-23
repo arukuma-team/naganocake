@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-4 offset-md-4">
+      <h2>本当に退会しますか？</h2>
+      <div>
+        <p>退会する場合は、『退会する』をクリックしてください。</p>
+      </div>
+      <div>
+        <%= link_to "退会しない", members_member_path(@member), class: "btn btn-sm btn-success" %>
+        <%= link_to "退会する", members_out_member_path(@member), method: :patch, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

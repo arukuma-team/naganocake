@@ -1,0 +1,37 @@
+<div class="container">
+  <div class='row'>
+    <h1>商品詳細</h1>
+    <!--ジャンル部分テンプレーにエラー発生-->
+      	<table class='table'>
+      	<tr>
+  		    <td></td>
+          <td>商品名</td>
+          <td>商品説明</td>
+          <td>税抜価格</td>
+          <td colspan="3"></td>
+        </tr>
+  		  <tr>
+  		    <td><%= attachment_image_tag @item, :picture, :fill, 100, 100, format: 'jpeg' %></td>
+          <td><%= @item.name %></td>
+          <td><%= @item.description %></td>
+          <td>￥<%= @item.price %></td>
+          <td>
+            <h5><span class="badge rounded-pill bg-primary">カテゴリー</span><h5>
+          </td>
+          <td>
+            <% if @item.status == true %>
+             <%= form_with model: @cart_item, url: members_cart_items_path, local: true do |f| %>
+               <%= f.select :piece, [*1..10], selected: 1 %>
+               <%= f.hidden_field :item_id, value: @item.id %>
+               <%= f.hidden_field :member_id, value: current_member.id %>
+               <%= f.submit "カートに入れる", class: "glyphicon glyphicon-shopping-cart btn btn-primary" %>
+             <% end %>
+            <% elsif @item.status == false %>
+             <h5><span class="badge rounded-pill bg-secondary">販売停止中</span></h5>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

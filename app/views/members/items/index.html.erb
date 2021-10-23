@@ -1,25 +1,40 @@
 <div class='container'>
   <div class='row'>
+    <div class="col-md-3">
+    
+    <%= render 'members/items/category', categories: @categories %>
+      
+    </div>
+    
+    <div class="col-md-8 offset-md-1">
+    
     <h1>商品一覧</h1>
     <table class='table table-hover table-inverse'>
       <thead>
         <tr>
-          <th colspan="3"></th>
+          <th></th>
           <th>商品名</th>
-          <th colspan="3"></th>
-          <th colspan="3"></th>
+          <th>価格</th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
         <% @items.each do |item| %>
           <tr>
-            <td><%= @item.image %></td>
-            <td><%= link_to @item.name, members_item_path(@item), class: "item_#{item.id}" %></td>
-            <td class="badge rounded-pill bg-primary">カテゴリー</td>
-            <td class="badge rounded-pill bg-primary">販売ステータス</td>
+            <td><%= attachment_image_tag item, :picture, :fill, 150, 150, format: 'jpeg' %></td>
+            <td><%= link_to item.name, members_item_path(item), class: "item_#{item.id}" %></td>
+            <td>￥<%= item.price %>(税抜・送料別)</td>
+            <td>
+              <% if item.status? %>
+               <h5><span class="badge rounded-pill bg-success">販売中</span></h5>
+              <% else %>
+               <h5><span class="badge rounded-pill bg-secondary">販売停止中</span></h5>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
+      <%= will_paginate @items, :previous_label => ' &lt 前へ', :next_label => '  次へ &gt' %>
     </table>
   </div>
 </div>

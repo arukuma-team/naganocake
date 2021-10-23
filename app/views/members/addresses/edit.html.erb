@@ -1,0 +1,25 @@
+ <div class="container">
+   <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+<h1>住所編集</h1>
+<!--エラーメッセージ-->
+
+<%= form_with model: @address, url:"/members/addresses/#{@address.id}", local: true do |f| %>
+   <h7>郵便番号</h7>
+      <%= f.text_field :zip, class: 'form-control' %>
+    <h7>住所</h7>
+      <%= f.text_field :address, class: 'form-control' %>
+    <h7>名前</h7>
+      <%= f.text_field :name, class: 'form-control' %>
+
+
+
+  <div><%= f.submit '編集する', class: "mt-3 btn btn-outline-info" %></div>
+
+<% end %>
+
+<div class="col-lg-4"></div>
+</div>
+</div>
+</div>

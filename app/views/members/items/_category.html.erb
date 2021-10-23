@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        ジャンル一覧
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% categories.each do |category| %>  
+    <tr>
+      <td>
+        <%= link_to members_items_path(select_categories: category.id), class:'text-dark font-weight-bold' do %>
+        <%= category.category %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

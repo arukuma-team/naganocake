@@ -69,3 +69,11 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'carrierwave'
+
+gem 'discard'
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
+gem 'jquery-rails'

@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_060842) do
+ActiveRecord::Schema.define(version: 2021_09_26_095124) do
+
 
   create_table "addresses", force: :cascade do |t|
     t.integer "member_id"
@@ -36,9 +37,9 @@ ActiveRecord::Schema.define(version: 2021_09_21_060842) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_id"
     t.integer "member_id"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "piece"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,9 +52,10 @@ ActiveRecord::Schema.define(version: 2021_09_21_060842) do
     t.integer "category_id"
     t.string "name"
     t.text "description"
-    t.string "price"
+    t.integer "price"
     t.boolean "status"
-    t.string "item_image"
+
+    t.string "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_060842) do
     t.string "zip"
     t.text "address"
     t.string "tel"
-    t.boolean "status"
+    t.boolean "status", default: false, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
